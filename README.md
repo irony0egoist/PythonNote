@@ -1,7 +1,7 @@
 # PythonNote
-Python备忘录
+Python备忘录-基于Python3
 
-[toc]
+
 
 
 ## 1、Python读写EXECL
@@ -178,9 +178,65 @@ worksheet.write(row, column, "memeda", style)
 workbook.save('memeda.xls')
 ```
 
-## 2、Python修改JSON数据
+## 2、Python文件增删改查
+### 1 文件操作 rwa
+r、w、a、r+、w+、a+和b
+|   模式   |   可做操作   |   若文件不存在   |   是否覆盖   |
+| ---- | ---- | ---- | ---- |
+|  r    |   只能读   |  报错    |    -  |
+|   r+   |    可读可写  |   报错   |   是   |
+|  w    |  只能写    |   创建   |   是   |
+|  w+    |   可读可写   |   创建   |    是  |
+|   a   |   只能写   |   创建   |  否，追加写    |
+|   a+   |   可读可写   |   创建   |   否，追加写   |
+```
+b为二进制模式，可以处理除了文本之外的图片、音频、视频等格式的文件
+```
+### 2 使用
+读文件1：
+```
+打开文件需要手工关闭，否则文件会一直占据内存
+f=open('a.txt','r',encoding='utf-8')
+data=f.read()
+print(data)
+f.close()
+```
+读文件2
+```
+无需手动关闭
+with open('a.txt','a+',encoding='utf-8') as f:
+    f.write('hello')
+    print(f.read())
+```
+### 3 文件内光标的移动read、seek、tell、truncate
 
-### 1 先读后写(python3)
+除去read( )是以字符进行读取的，seek、tell、truncate是以字节为单位进行的
+
+ - read
+read(3)表示读取3个字符
+
+ - seek
+ seek(3)表示光标向后移动3个字节，默认是从光标在文件最前面开始，也即seek(3,0)
+ seek(3,1) 表示从光标上一次所在的位置向后移动3个字节
+ seek(-3,2)表示从文件末尾开始向前移动
+ 光标的相对移动需要在打开时指定b模式，seek的第二个参数表示移动方式，0为默认方式，即从文件最开头移动，1是相对上一次移动，2是从文件末尾移动
+
+ - truncate
+truncate(3)表示截取文件前3个字节，必须以可写的方式打开，w和w+除外
+
+ - tell
+tell( )表示显示当前光标所在的字节
+
+## 3、Python读写JSON文件
+
+```
+dumps()  将一个python对象编码为json对象
+loads() 讲一个json对象解析为python对象
+dump() 将python对象写入文件
+load()从文件中读取json数据
+```
+
+### 1 先读后写
 ```
 #!/usr/bin/python
 import json
@@ -194,7 +250,7 @@ with open("replayScript.json", "w") as jsonFile:
     json.dump(data, jsonFile,ensure_ascii=False)
 ```
 
-### 2 读写一起 移动文件位置指针(python3)
+### 2 读写一起 移动文件位置指针
 ```
 with open("replayScript.json", "r+",encoding='utf-8') as jsonFile:
     data = json.load(jsonFile)
@@ -220,3 +276,4 @@ with open("./config/patchconfig/patch_log.json", 'r+',encoding='utf-8') as f:
     json.dump(log, f,ensure_ascii=False)
     f.truncate()
 ```
+
