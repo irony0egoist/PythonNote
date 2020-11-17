@@ -1,45 +1,30 @@
 # PythonNote
 Python备忘录-基于Python3
 
-  \* [PythonNote](#pythonnote)
+=================
 
-   \* [1、Python读写EXECL](#1python读写execl)
+   * [PythonNote](#pythonnote)
+      * [1、Python读写EXECL](#1python读写execl)
+         * [1 安装及导入](#1-安装及导入)
+         * [2 使用](#2-使用)
+         * [3 详细使用](#3-详细使用)
+            * [1 读取excel](#1-读取excel)
+            * [2 读取sheet](#2-读取sheet)
+            * [3 读取sheet的行](#3-读取sheet的行)
+            * [4 读取sheet的列](#4-读取sheet的列)
+            * [5 读取sheet的单元格](#5-读取sheet的单元格)
+            * [6 写入excel](#6-写入excel)
+            * [7 带样式写入示例](#7-带样式写入示例)
+      * [2、Python文件增删改查](#2python文件增删改查)
+         * [1 文件操作 rwa](#1-文件操作-rwa)
+         * [2 使用](#2-使用-1)
+         * [3 文件内光标的移动read、seek、tell、truncate](#3-文件内光标的移动readseektelltruncate)
+      * [3、Python读写JSON文件](#3python读写json文件)
+         * [1 先读后写](#1-先读后写)
+         * [2 读写一起 移动文件位置指针](#2-读写一起-移动文件位置指针)
+         * [3 数组类型读写](#3-数组类型读写)
 
-​     \* [1 安装及导入](#1-安装及导入)
 
-​     \* [2 使用](#2-使用)
-
-​     \* [3 详细使用](#3-详细使用)
-
-​      \* [1 读取excel](#1-读取excel)
-
-​      \* [2 读取sheet](#2-读取sheet)
-
-​      \* [3 读取sheet的行](#3-读取sheet的行)
-
-​      \* [4 读取sheet的列](#4-读取sheet的列)
-
-​      \* [5 读取sheet的单元格](#5-读取sheet的单元格)
-
-​      \* [6 写入excel](#6-写入excel)
-
-​      \* [7 带样式写入示例](#7-带样式写入示例)
-
-   \* [2、Python文件增删改查](#2python文件增删改查)
-
-​     \* [1 文件操作 rwa](#1-文件操作-rwa)
-
-​     \* [2 使用](#2-使用-1)
-
-​     \* [3 文件内光标的移动read、seek、tell、truncate](#3-文件内光标的移动readseektelltruncate)
-
-   \* [3、Python读写JSON文件](#3python读写json文件)
-
-​     \* [1 先读后写](#1-先读后写)
-
-​     \* [2 读写一起 移动文件位置指针](#2-读写一起-移动文件位置指针)
-
-​     \* [3 数组类型读写](#3-数组类型读写)
 
 
 ## 1、Python读写EXECL
